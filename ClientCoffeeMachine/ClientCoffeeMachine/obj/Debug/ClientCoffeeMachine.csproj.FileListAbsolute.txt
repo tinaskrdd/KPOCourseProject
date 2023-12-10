@@ -1,0 +1,11 @@
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachine\bin\Debug\ClientCoffeeMachine.exe.config
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachine\bin\Debug\ClientCoffeeMachine.exe
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachine\bin\Debug\ClientCoffeeMachine.pdb
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachine\obj\Debug\ClientCoffeeMachine.csproj.AssemblyReference.cache
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachine\obj\Debug\ClientCoffeeMachine.csproj.SuggestedBindingRedirects.cache
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachine\obj\Debug\ClientCoffeeMachine.Form1.resources
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachine\obj\Debug\ClientCoffeeMachine.Properties.Resources.resources
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachine\obj\Debug\ClientCoffeeMachine.csproj.GenerateResource.cache
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachine\obj\Debug\ClientCoffeeMachine.csproj.CoreCompileInputs.cache
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachine\obj\Debug\ClientCoffeeMachine.exe
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachine\obj\Debug\ClientCoffeeMachine.pdb
