@@ -1,0 +1,7 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/ClientCoffeeMachine/ServerCoffeeMachine/.vs/ServerCoffeeMachine.csproj.dtbcache.json
+/ClientCoffeeMachine/ClientCoffeeMachine/.vs/ClientCoffeeMachine.csproj.dtbcache.json
+/ClientCoffeeMachine/.vs/ClientCoffeeMachine/FileContentIndex
