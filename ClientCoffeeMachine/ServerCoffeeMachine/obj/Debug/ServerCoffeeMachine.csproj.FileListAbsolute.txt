@@ -9,3 +9,13 @@ C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\bin\
 C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\bin\Debug\ServerCoffeeMachine.pdb
 C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\obj\Debug\ServerCoffeeMachine.exe
 C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\obj\Debug\ServerCoffeeMachine.pdb
+D:\Tiny\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\bin\Debug\ServerCoffeeMachine.exe.config
+D:\Tiny\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\bin\Debug\ServerCoffeeMachine.exe
+D:\Tiny\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\bin\Debug\ServerCoffeeMachine.pdb
+D:\Tiny\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\obj\Debug\ServerCoffeeMachine.csproj.AssemblyReference.cache
+D:\Tiny\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\obj\Debug\ServerCoffeeMachine.Form1.resources
+D:\Tiny\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\obj\Debug\ServerCoffeeMachine.Properties.Resources.resources
+D:\Tiny\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\obj\Debug\ServerCoffeeMachine.csproj.GenerateResource.cache
+D:\Tiny\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\obj\Debug\ServerCoffeeMachine.csproj.CoreCompileInputs.cache
+D:\Tiny\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\obj\Debug\ServerCoffeeMachine.exe
+D:\Tiny\KPOCourseProject\ClientCoffeeMachine\ServerCoffeeMachine\obj\Debug\ServerCoffeeMachine.pdb

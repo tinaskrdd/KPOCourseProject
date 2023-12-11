@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,12 +15,13 @@ namespace ClientCoffeeMachine
 {
     public partial class Form1 : Form
     {
-        private UdpClient udpClient;
+        private string serverIpAddress = "127.0.0.1";
+        private TcpClient tcpClient;
         private const int port = 8888;
         public Form1()
         {
             InitializeComponent();
-            udpClient = new UdpClient();
+            tcpClient = new TcpClient(serverIpAddress, port);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -29,22 +31,19 @@ namespace ClientCoffeeMachine
 
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string messageToSend = txtMessageToSend.Text;
-                byte[] sendBytes = Encoding.ASCII.GetBytes(messageToSend);
-                udpClient.Send(sendBytes, sendBytes.Length, "127.0.0.1", port);
+            NetworkStream networkStream = tcpClient.GetStream();
+            byte[] dataToSend = Encoding.ASCII.GetBytes(txtMessageToSend.Text);
+            txtMessageToSend.Text = "";
 
-                IPEndPoint serverEndPoint = new IPEndPoint(IPAddress.Any, 0);
-                byte[] receivedBytes = udpClient.Receive(ref serverEndPoint);
-                string receivedMessage = Encoding.ASCII.GetString(receivedBytes);
+            // Send the message to the server
+            networkStream.Write(dataToSend, 0, dataToSend.Length);
 
-                AppendToReceivedTextBox("Received message from server: " + receivedMessage);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            // Receive the response from the server
+            byte[] buffer = new byte[1024];
+            int bytesRead = networkStream.Read(buffer, 0, buffer.Length);
+            string response = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+
+            AppendToReceivedTextBox(response);
         }
         private void AppendToReceivedTextBox(string message)
         {
@@ -56,6 +55,11 @@ namespace ClientCoffeeMachine
             {
                 txtReceived.AppendText(message + Environment.NewLine);
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            tcpClient.Close();
         }
     }
 }
