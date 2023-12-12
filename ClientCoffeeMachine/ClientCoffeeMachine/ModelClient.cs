@@ -23,7 +23,7 @@ public abstract class Beverage
     abstract public int getSugar();
     abstract public int getMilk();
     abstract public int getWater();
-
+    abstract public string getCoffeeType();
 }
 
 public class Coffee: Beverage
@@ -33,13 +33,18 @@ public class Coffee: Beverage
     protected int coffee;
     protected int milk;
     protected int sugar;
-
-    public Coffee(int _w, int _c, int _m, int _s)
+    protected string type;
+    public Coffee(int _w, int _c, int _m, int _s, string _type)
     {
         water = _w;
         coffee = _c;
         milk = _m;
         sugar = _s;
+        type = _type;
+    }
+    public override string getCoffeeType()
+    {
+        return type;
     }
     // Getters
     public override int getCoffee()
@@ -80,12 +85,16 @@ public class Coffee: Beverage
             sugar = (int)sgr;
         }
     }
+    public void setType(string value)
+    {
+        type = value;
+    }
 } 
 
 public class Cappuccino: Coffee
 {
     // Constructors 
-    public Cappuccino() : base((int)QuantitiesOfWater.capuccinoWater, (int)QuanititiesOfCoffee.capuccino, 100,(int)QuantitiesOfSugar.sugarFree)
+    public Cappuccino() : base((int)QuantitiesOfWater.capuccinoWater, (int)QuanititiesOfCoffee.capuccino, 100,(int)QuantitiesOfSugar.sugarFree,"capuccino")
     {
     
 
@@ -95,12 +104,12 @@ public class Cappuccino: Coffee
 public class Espresso: Coffee
 {
     // Constructors 
-    public Espresso(): base((int)QuantitiesOfWater.espressoWater, (int)QuanititiesOfCoffee.espresso,0, (int)QuantitiesOfSugar.sugarFree)
+    public Espresso(): base((int)QuantitiesOfWater.espressoWater, (int)QuanititiesOfCoffee.espresso,0, (int)QuantitiesOfSugar.sugarFree, "espresso")
     {
 
     }
 }
 public class Americano: Coffee {
-    public Americano() : base((int)QuantitiesOfWater.americanoWater, (int)QuanititiesOfCoffee.americano, 0, (int)QuantitiesOfSugar.sugarFree) { 
+    public Americano() : base((int)QuantitiesOfWater.americanoWater, (int)QuanititiesOfCoffee.americano, 0, (int)QuantitiesOfSugar.sugarFree, "americano") { 
     }
 }

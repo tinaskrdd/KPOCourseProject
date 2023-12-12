@@ -28,7 +28,7 @@ public static class Controller
     {
         try
         {
-            string messageToSend = $"{cof.getCoffee()};{cof.getWater()};{cof.getSugar()};{cof.getMilk()}";
+            string messageToSend = $"{cof.GetType()};{cof.getCoffee()};{cof.getWater()};{cof.getSugar()};{cof.getMilk()}";
             byte[] sendBytes = Encoding.ASCII.GetBytes(messageToSend);
             udpClient.Send(sendBytes, sendBytes.Length, "127.0.0.1", port);
 
