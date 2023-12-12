@@ -40,6 +40,10 @@
             this.semiSweetRB = new System.Windows.Forms.RadioButton();
             this.sweetRB = new System.Windows.Forms.RadioButton();
             this.orderBtn = new System.Windows.Forms.Button();
+            this.CoffeeRem = new System.Windows.Forms.TextBox();
+            this.WaterRem = new System.Windows.Forms.TextBox();
+            this.MilkRem = new System.Windows.Forms.TextBox();
+            this.SugarRem = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -174,11 +178,43 @@
             this.orderBtn.UseVisualStyleBackColor = true;
             this.orderBtn.Click += new System.EventHandler(this.orderBtn_Click);
             // 
+            // CoffeeRem
+            // 
+            this.CoffeeRem.Location = new System.Drawing.Point(973, 93);
+            this.CoffeeRem.Name = "CoffeeRem";
+            this.CoffeeRem.Size = new System.Drawing.Size(100, 22);
+            this.CoffeeRem.TabIndex = 6;
+            // 
+            // WaterRem
+            // 
+            this.WaterRem.Location = new System.Drawing.Point(973, 169);
+            this.WaterRem.Name = "WaterRem";
+            this.WaterRem.Size = new System.Drawing.Size(100, 22);
+            this.WaterRem.TabIndex = 7;
+            // 
+            // MilkRem
+            // 
+            this.MilkRem.Location = new System.Drawing.Point(973, 237);
+            this.MilkRem.Name = "MilkRem";
+            this.MilkRem.Size = new System.Drawing.Size(100, 22);
+            this.MilkRem.TabIndex = 8;
+            // 
+            // SugarRem
+            // 
+            this.SugarRem.Location = new System.Drawing.Point(973, 292);
+            this.SugarRem.Name = "SugarRem";
+            this.SugarRem.Size = new System.Drawing.Size(100, 22);
+            this.SugarRem.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 740);
+            this.Controls.Add(this.SugarRem);
+            this.Controls.Add(this.MilkRem);
+            this.Controls.Add(this.WaterRem);
+            this.Controls.Add(this.CoffeeRem);
             this.Controls.Add(this.orderBtn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -211,6 +247,10 @@
         private System.Windows.Forms.RadioButton semiSweetRB;
         private System.Windows.Forms.RadioButton sweetRB;
         private System.Windows.Forms.Button orderBtn;
+        private System.Windows.Forms.TextBox CoffeeRem;
+        private System.Windows.Forms.TextBox WaterRem;
+        private System.Windows.Forms.TextBox MilkRem;
+        private System.Windows.Forms.TextBox SugarRem;
     }
 }
 

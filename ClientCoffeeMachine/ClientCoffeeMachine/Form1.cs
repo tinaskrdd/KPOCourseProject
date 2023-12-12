@@ -24,6 +24,29 @@ namespace ClientCoffeeMachine
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Sends - Coffee - Water - Milk - Sugar 
+            int coffee, water, milk, sugar;
+            string serverResources = Controller.requestTotal(udpClient, port);
+
+            string[] parts = serverResources.Split(';');
+            if (parts.Length == 4)
+            {
+                coffee = int.Parse(parts[0]);
+                water = int.Parse(parts[1]);
+                milk = int.Parse(parts[2]);
+                sugar = int.Parse(parts[3]);
+            }
+            else
+            {
+                coffee = 0;
+                water = 0;
+                milk = 0;
+                sugar = 0;
+            }
+            CoffeeRem.Text = coffee.ToString();
+            WaterRem.Text = water.ToString();
+            MilkRem.Text = milk.ToString();
+            SugarRem.Text = sugar.ToString();
 
         }
 
@@ -60,6 +83,64 @@ namespace ClientCoffeeMachine
 
         private void orderBtn_Click(object sender, EventArgs e)
         {
+
+            // Sends - Coffee - Water - Milk - Sugar 
+            int coffee, water, milk, sugar;
+            string serverResources = Controller.requestTotal(udpClient, port);
+
+            string[] parts = serverResources.Split(';');
+            if (parts.Length == 4)
+            {
+                coffee = int.Parse(parts[0]);
+                water = int.Parse(parts[1]);
+                milk = int.Parse(parts[2]);
+                sugar = int.Parse(parts[3]);
+            } else
+            {
+                coffee = 0;
+                water = 0;
+                milk = 0;
+                sugar = 0;
+            }
+            CoffeeRem.Text = coffee.ToString();
+            WaterRem.Text = water.ToString();
+            MilkRem.Text = milk.ToString();
+            SugarRem.Text = sugar.ToString();
+
+            if (milk < 100)
+            {
+                cappucinoRB.Enabled = false;
+            }
+            if (coffee < 10)
+            {
+                cappucinoRB.Enabled = false;
+                espressoRB.Enabled = false;
+                americanoRB.Enabled = false;
+                
+            }
+            else if(coffee < 15)
+            {
+                cappucinoRB.Enabled = false;
+                espressoRB.Enabled = false;
+                americanoRB.Enabled = true;
+            }else if(coffee < 20)
+            {
+                cappucinoRB.Enabled = true;
+                espressoRB.Enabled = false;
+                americanoRB.Enabled = true;
+            }
+            else
+            {
+                cappucinoRB.Enabled = true;
+                espressoRB.Enabled = true;
+                americanoRB.Enabled = true;
+            }
+            
+
+
+
+
+
             int sugarChoice = 1;
             int drinkChoice = 1;
             Coffee orderedCoffee;
@@ -96,6 +177,59 @@ namespace ClientCoffeeMachine
             //updateServer(orderedCoffee);
             string serverResponse = Controller.updateServer(orderedCoffee, udpClient, port);
             AppendToReceivedTextBox(serverResponse);
+            
+            string serverResource1s = Controller.requestTotal(udpClient, port);
+
+            string[] parts1 = serverResources.Split(';');
+            if (parts1.Length == 4)
+            {
+                coffee = int.Parse(parts1[0]);
+                water = int.Parse(parts1[1]);
+                milk = int.Parse(parts1[2]);
+                sugar = int.Parse(parts1[3]);
+            }
+            else
+            {
+                coffee = 0;
+                water = 0;
+                milk = 0;
+                sugar = 0;
+            }
+
+            if (milk < 100)
+            {
+                cappucinoRB.Enabled = false;
+            }
+            if (coffee < 10)
+            {
+                cappucinoRB.Enabled = false;
+                espressoRB.Enabled = false;
+                americanoRB.Enabled = false;
+
+            }
+            else if (coffee < 15)
+            {
+                cappucinoRB.Enabled = false;
+                espressoRB.Enabled = false;
+                americanoRB.Enabled = true;
+            }
+            else if (coffee < 20)
+            {
+                cappucinoRB.Enabled = true;
+                espressoRB.Enabled = false;
+                americanoRB.Enabled = true;
+            }
+            else
+            {
+                cappucinoRB.Enabled = true;
+                espressoRB.Enabled = true;
+                americanoRB.Enabled = true;
+            }
+            CoffeeRem.Text = coffee.ToString();
+            WaterRem.Text = water.ToString();
+            MilkRem.Text = milk.ToString();
+            SugarRem.Text = sugar.ToString();
+
         }
 
         public void updateServer(Coffee cof)

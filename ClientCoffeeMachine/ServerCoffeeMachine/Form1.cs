@@ -42,24 +42,34 @@ namespace ServerCoffeeMachine
             string receivedMessage = Encoding.ASCII.GetString(receivedBytes);
 
             AppendToReceivedTextBox("Received message from client: " + receivedMessage);
-            
-            string[] parts = receivedMessage.Split(';');
-            if (parts.Length == 5)
+            if (receivedMessage == "total")
             {
-                int coffee = int.Parse(parts[1]);
-                int water = int.Parse(parts[2]);
-                int sugar = int.Parse(parts[3]);
-                int milk = int.Parse(parts[4]);
-                Controller.updateQuantities(coffee, water, sugar, milk);
+
+                AppendToReceivedTextBox("Sending total\n");
+                byte[] sendBytes = Encoding.ASCII.GetBytes(Controller.getHowMuchIsLeft());
+                udpServer.Send(sendBytes, sendBytes.Length, clientEndPoint);
             }
-            Storage storageSingleTon = Storage.GetInstance();
+            else
+            {
+                AppendToReceivedTextBox("Updating storage\n");
+                string[] parts = receivedMessage.Split(';');
+                if (parts.Length == 5)
+                {
+                    int coffee = int.Parse(parts[1]);
+                    int water = int.Parse(parts[2]);
+                    int sugar = int.Parse(parts[3]);
+                    int milk = int.Parse(parts[4]);
+                    Controller.updateQuantities(coffee, water, sugar, milk);
+                }
+                Storage storageSingleTon = Storage.GetInstance();
                 // SendMessage to the server
                 string mes = $"Coffee = {storageSingleTon.remainingCoffee}; Water = {storageSingleTon.remainingWater};" +
                 $" Sugar = {storageSingleTon.remainingSugar}; Milk = {storageSingleTon.remainingMilk}";
                 string responseMessage = "Remaining storage: " + mes;
-            byte[] sendBytes = Encoding.ASCII.GetBytes(responseMessage);
-            udpServer.Send(sendBytes, sendBytes.Length, clientEndPoint);
-
+                byte[] sendBytes = Encoding.ASCII.GetBytes(responseMessage);
+                udpServer.Send(sendBytes, sendBytes.Length, clientEndPoint);
+            }
+            
             // Continue listening for more messages
             udpServer.BeginReceive(new AsyncCallback(ReceiveCallback), null);
         }

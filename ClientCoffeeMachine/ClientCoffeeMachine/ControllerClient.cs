@@ -44,4 +44,25 @@ public static class Controller
             MessageBox.Show("Error: " + ex.Message);
         }
     }
+
+    public static string requestTotal(UdpClient udpClient, int port)
+    {
+        try
+        {
+            string messageToSend = "total";
+            byte[] sendBytes = Encoding.ASCII.GetBytes(messageToSend);
+            udpClient.Send(sendBytes, sendBytes.Length, "127.0.0.1", port);
+
+            IPEndPoint serverEndPoint = new IPEndPoint(IPAddress.Any, 0);
+            byte[] receivedBytes = udpClient.Receive(ref serverEndPoint);
+            string receivedMessage = Encoding.ASCII.GetString(receivedBytes);
+
+            return receivedMessage;
+        }
+        catch (Exception ex)
+        {
+            return "Error" + ex.Message;
+            MessageBox.Show("Error: " + ex.Message);
+        }
+    }
 } 
