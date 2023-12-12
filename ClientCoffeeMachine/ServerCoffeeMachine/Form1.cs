@@ -23,7 +23,7 @@ namespace ServerCoffeeMachine
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            btnStartServer_Click(sender, e);
         }
 
         private void btnStartServer_Click(object sender, EventArgs e)
@@ -43,8 +43,20 @@ namespace ServerCoffeeMachine
 
             AppendToReceivedTextBox("Received message from client: " + receivedMessage);
 
-            // Echo back the received message to the client
-            string responseMessage = "Server received your message: " + receivedMessage;
+            string[] parts = receivedMessage.Split(';');
+            if (parts.Length == 4)
+            {
+                int coffee = int.Parse(parts[0]);
+                int water = int.Parse(parts[1]);
+                int sugar = int.Parse(parts[2]);
+                int milk = int.Parse(parts[3]);
+                Controller.updateQuantities(coffee, water, sugar, milk);
+            }
+            Storage storageSingleTon = Storage.GetInstance();
+                // Echo back the received message to the client
+                string mes = $"Coffee = {storageSingleTon.remainingCoffee}; Water = {storageSingleTon.remainingWater};" +
+                $" Sugar = {storageSingleTon.remainingSugar}; Milk = {storageSingleTon.remainingMilk}";
+                string responseMessage = "Remaining storage: " + mes;
             byte[] sendBytes = Encoding.ASCII.GetBytes(responseMessage);
             udpServer.Send(sendBytes, sendBytes.Length, clientEndPoint);
 

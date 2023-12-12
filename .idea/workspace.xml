@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7eb57112-6815-49db-8919-69ad9541f5d3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/ClientCoffeeMachine/.vs/ClientCoffeeMachine/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCoffeeMachine/.vs/ClientCoffeeMachine/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCoffeeMachine/ClientCoffeeMachine/ClientCoffeeMachine.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCoffeeMachine/ClientCoffeeMachine/ClientCoffeeMachine.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCoffeeMachine/ClientCoffeeMachine/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCoffeeMachine/ClientCoffeeMachine/Form1.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCoffeeMachine/ClientCoffeeMachine/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCoffeeMachine/ClientCoffeeMachine/Form1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCoffeeMachine/ClientCoffeeMachine/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCoffeeMachine/ClientCoffeeMachine/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/Form1.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/bin/Debug/ServerCoffeeMachine.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/bin/Debug/ServerCoffeeMachine.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/bin/Debug/ServerCoffeeMachine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/bin/Debug/ServerCoffeeMachine.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/obj/Debug/ServerCoffeeMachine.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/obj/Debug/ServerCoffeeMachine.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/obj/Debug/ServerCoffeeMachine.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/obj/Debug/ServerCoffeeMachine.csproj.GenerateResource.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/obj/Debug/ServerCoffeeMachine.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/obj/Debug/ServerCoffeeMachine.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/obj/Debug/ServerCoffeeMachine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ClientCoffeeMachine/ServerCoffeeMachine/obj/Debug/ServerCoffeeMachine.pdb" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="2ZS1q67Nh8B5yQt6b2o7UBTxEur" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7eb57112-6815-49db-8919-69ad9541f5d3" name="Changes" comment="" />
+      <created>1702400856490</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702400856490</updated>
+    </task>
+    <servers />
+  </component>
+</project>

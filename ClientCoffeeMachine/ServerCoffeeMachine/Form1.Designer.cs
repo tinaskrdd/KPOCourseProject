@@ -44,9 +44,10 @@
             // 
             // txtReceived
             // 
-            this.txtReceived.Location = new System.Drawing.Point(95, 174);
+            this.txtReceived.Location = new System.Drawing.Point(279, 12);
+            this.txtReceived.Multiline = true;
             this.txtReceived.Name = "txtReceived";
-            this.txtReceived.Size = new System.Drawing.Size(254, 22);
+            this.txtReceived.Size = new System.Drawing.Size(509, 413);
             this.txtReceived.TabIndex = 1;
             // 
             // Form1
