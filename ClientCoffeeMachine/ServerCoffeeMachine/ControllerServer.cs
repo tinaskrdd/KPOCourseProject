@@ -40,4 +40,12 @@
         int updatedMilk = strorageSingleTon.remainingMilk + quantity;
         strorageSingleTon.remainingMilk = updatedMilk;
     }
+
+    public static string getHowMuchIsLeft()
+    {
+        Storage storage = Storage.GetInstance();
+        string messageToSend = $"{storage.remainingCoffee};{storage.remainingWater};{storage.remainingMilk};{storage.remainingSugar}";
+        return messageToSend;
+        // Sends - Coffee - Water - Milk - Sugar 
+    }
 }
