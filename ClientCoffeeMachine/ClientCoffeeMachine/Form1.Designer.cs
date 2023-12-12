@@ -32,7 +32,6 @@
             this.txtMessageToSend = new System.Windows.Forms.TextBox();
             this.txtReceived = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.teaRB = new System.Windows.Forms.RadioButton();
             this.americanoRB = new System.Windows.Forms.RadioButton();
             this.cappucinoRB = new System.Windows.Forms.RadioButton();
             this.espressoRB = new System.Windows.Forms.RadioButton();
@@ -73,7 +72,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.teaRB);
             this.groupBox1.Controls.Add(this.americanoRB);
             this.groupBox1.Controls.Add(this.cappucinoRB);
             this.groupBox1.Controls.Add(this.espressoRB);
@@ -84,17 +82,7 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Beverage";
-            // 
-            // teaRB
-            // 
-            this.teaRB.AutoSize = true;
-            this.teaRB.Location = new System.Drawing.Point(6, 114);
-            this.teaRB.Name = "teaRB";
-            this.teaRB.Size = new System.Drawing.Size(58, 24);
-            this.teaRB.TabIndex = 3;
-            this.teaRB.TabStop = true;
-            this.teaRB.Text = "Tea";
-            this.teaRB.UseVisualStyleBackColor = true;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // americanoRB
             // 
@@ -215,7 +203,6 @@
         private System.Windows.Forms.TextBox txtMessageToSend;
         private System.Windows.Forms.TextBox txtReceived;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton teaRB;
         private System.Windows.Forms.RadioButton americanoRB;
         private System.Windows.Forms.RadioButton cappucinoRB;
         private System.Windows.Forms.RadioButton espressoRB;
