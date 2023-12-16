@@ -12,7 +12,7 @@
     {
         // Initialize properties here if needed
         remainingCoffee = 5000;
-        remainingWater = 10000;
+        remainingWater = 1000;
         remainingSugar = 1000;
         remainingMilk = 2000;
     }

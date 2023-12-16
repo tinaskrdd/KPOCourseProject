@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace ClientCoffeeMachine
     {
         private UdpClient udpClient;
         private const int port = 8888;
+        Form2 form2 = new Form2();
         public Form1()
         {
             InitializeComponent();
@@ -24,123 +26,20 @@ namespace ClientCoffeeMachine
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Sends - Coffee - Water - Milk - Sugar 
-            int coffee, water, milk, sugar;
-            string serverResources = Controller.requestTotal(udpClient, port);
-
-            string[] parts = serverResources.Split(';');
-            if (parts.Length == 4)
-            {
-                coffee = int.Parse(parts[0]);
-                water = int.Parse(parts[1]);
-                milk = int.Parse(parts[2]);
-                sugar = int.Parse(parts[3]);
-            }
-            else
-            {
-                coffee = 0;
-                water = 0;
-                milk = 0;
-                sugar = 0;
-            }
-            CoffeeRem.Text = coffee.ToString();
-            WaterRem.Text = water.ToString();
-            MilkRem.Text = milk.ToString();
-            SugarRem.Text = sugar.ToString();
-
+            espressoRB.Checked = true;
+            sugarFreeRB.Checked = true;
+            updateTextboxes();
+            check();
         }
 
-        private void btnSendMessage_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string messageToSend = txtMessageToSend.Text;
-                byte[] sendBytes = Encoding.ASCII.GetBytes(messageToSend);
-                udpClient.Send(sendBytes, sendBytes.Length, "127.0.0.1", port);
-
-                IPEndPoint serverEndPoint = new IPEndPoint(IPAddress.Any, 0);
-                byte[] receivedBytes = udpClient.Receive(ref serverEndPoint);
-                string receivedMessage = Encoding.ASCII.GetString(receivedBytes);
-
-                AppendToReceivedTextBox("Received message from server: " + receivedMessage);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
-        private void AppendToReceivedTextBox(string message)
-        {
-            if (txtReceived.InvokeRequired)
-            {
-                txtReceived.Invoke(new Action<string>(AppendToReceivedTextBox), new object[] { message });
-            }
-            else
-            {
-                txtReceived.AppendText(message + Environment.NewLine);
-            }
-        }
+    
+      
 
         private void orderBtn_Click(object sender, EventArgs e)
         {
-
-            // Sends - Coffee - Water - Milk - Sugar 
-            int coffee, water, milk, sugar;
-            string serverResources = Controller.requestTotal(udpClient, port);
-
-            string[] parts = serverResources.Split(';');
-            if (parts.Length == 4)
-            {
-                coffee = int.Parse(parts[0]);
-                water = int.Parse(parts[1]);
-                milk = int.Parse(parts[2]);
-                sugar = int.Parse(parts[3]);
-            } else
-            {
-                coffee = 0;
-                water = 0;
-                milk = 0;
-                sugar = 0;
-            }
-            CoffeeRem.Text = coffee.ToString();
-            WaterRem.Text = water.ToString();
-            MilkRem.Text = milk.ToString();
-            SugarRem.Text = sugar.ToString();
-
-            if (milk < 100)
-            {
-                cappucinoRB.Enabled = false;
-            }
-            if (coffee < 10)
-            {
-                cappucinoRB.Enabled = false;
-                espressoRB.Enabled = false;
-                americanoRB.Enabled = false;
-                
-            }
-            else if(coffee < 15)
-            {
-                cappucinoRB.Enabled = false;
-                espressoRB.Enabled = false;
-                americanoRB.Enabled = true;
-            }else if(coffee < 20)
-            {
-                cappucinoRB.Enabled = true;
-                espressoRB.Enabled = false;
-                americanoRB.Enabled = true;
-            }
-            else
-            {
-                cappucinoRB.Enabled = true;
-                espressoRB.Enabled = true;
-                americanoRB.Enabled = true;
-            }
-            
-
-
-
-
-
+            form2.addText("order button pressed");
+            check();
+            updateTextboxes();
             int sugarChoice = 1;
             int drinkChoice = 1;
             Coffee orderedCoffee;
@@ -176,60 +75,10 @@ namespace ClientCoffeeMachine
             orderedCoffee = Controller.brewCoffee(drinkChoice, sugarChoice);
             //updateServer(orderedCoffee);
             string serverResponse = Controller.updateServer(orderedCoffee, udpClient, port);
-            AppendToReceivedTextBox(serverResponse);
-            
-            string serverResource1s = Controller.requestTotal(udpClient, port);
-
-            string[] parts1 = serverResources.Split(';');
-            if (parts1.Length == 4)
-            {
-                coffee = int.Parse(parts1[0]);
-                water = int.Parse(parts1[1]);
-                milk = int.Parse(parts1[2]);
-                sugar = int.Parse(parts1[3]);
-            }
-            else
-            {
-                coffee = 0;
-                water = 0;
-                milk = 0;
-                sugar = 0;
-            }
-
-            if (milk < 100)
-            {
-                cappucinoRB.Enabled = false;
-            }
-            if (coffee < 10)
-            {
-                cappucinoRB.Enabled = false;
-                espressoRB.Enabled = false;
-                americanoRB.Enabled = false;
-
-            }
-            else if (coffee < 15)
-            {
-                cappucinoRB.Enabled = false;
-                espressoRB.Enabled = false;
-                americanoRB.Enabled = true;
-            }
-            else if (coffee < 20)
-            {
-                cappucinoRB.Enabled = true;
-                espressoRB.Enabled = false;
-                americanoRB.Enabled = true;
-            }
-            else
-            {
-                cappucinoRB.Enabled = true;
-                espressoRB.Enabled = true;
-                americanoRB.Enabled = true;
-            }
-            CoffeeRem.Text = coffee.ToString();
-            WaterRem.Text = water.ToString();
-            MilkRem.Text = milk.ToString();
-            SugarRem.Text = sugar.ToString();
-
+           // AppendToReceivedTextBox(serverResponse);
+            form2.addText(serverResponse);
+            updateTextboxes();
+            MessageBox.Show("Here is your coffee. Thank you for your order");
         }
 
         public void updateServer(Coffee cof)
@@ -243,8 +92,8 @@ namespace ClientCoffeeMachine
                 IPEndPoint serverEndPoint = new IPEndPoint(IPAddress.Any, 0);
                 byte[] receivedBytes = udpClient.Receive(ref serverEndPoint);
                 string receivedMessage = Encoding.ASCII.GetString(receivedBytes);
-
-                AppendToReceivedTextBox("Received message from server: " + receivedMessage);
+                form2.addText("Received message from server: " + receivedMessage);
+               // AppendToReceivedTextBox("Received message from server: " + receivedMessage);
             }
             catch (Exception ex)
             {
@@ -252,9 +101,153 @@ namespace ClientCoffeeMachine
             }
         }
 
+        private void updateTextboxes()
+        {
+            int coffee, water, milk, sugar;
+            string serverResources = Controller.requestTotal(udpClient, port);
+
+            string[] parts = serverResources.Split(';');
+            if (parts.Length == 4)
+            {
+                coffee = int.Parse(parts[0]);
+                water = int.Parse(parts[1]);
+                milk = int.Parse(parts[2]);
+                sugar = int.Parse(parts[3]);
+            }
+            else
+            {
+                coffee = 0;
+                water = 0;
+                milk = 0;
+                sugar = 0;
+            }
+            CoffeeRem.Text = coffee.ToString();
+            WaterRem.Text = water.ToString();
+            MilkRem.Text = milk.ToString();
+            SugarRem.Text = sugar.ToString();
+
+        }
+
+        private void check()
+        {
+            orderBtn.Enabled = true;
+            (int, int, int, int) resources;
+            resources = Controller.checkBeforeBrewing(udpClient, port);
+            int coffee, water, milk, sugar;
+            coffee = resources.Item1;
+            water = resources.Item2;
+            milk = resources.Item3;
+            sugar = resources.Item4;
+
+            if (coffee < 30)
+            {
+                espressoRB.Enabled = false;
+                cappucinoRB.Enabled = false;
+                americanoRB.Enabled = false;
+                sweetRB.Enabled = false;
+                semiSweetRB.Enabled = false;
+                sugarFreeRB.Enabled = false;
+                orderBtn.Enabled = false;
+                Controller.sendToServerCoffeeStatus(udpClient, port);
+                MessageBox.Show("The coffee machine is out of order", "Apologies");
+
+            } else if  (water < 400)  {
+                espressoRB.Enabled = false;
+                cappucinoRB.Enabled = false;
+                americanoRB.Enabled = false;
+                sweetRB.Enabled = false;
+                semiSweetRB.Enabled = false;
+                sugarFreeRB.Enabled = false;
+                orderBtn.Enabled = false;
+                Controller.sendToServerWaterStatus(udpClient, port);
+                MessageBox.Show("The coffee machine is out of order", "Apologies");
+            } else if (milk < 250)
+            {
+                espressoRB.Enabled = true;
+                cappucinoRB.Enabled = false;
+                americanoRB.Enabled = true;
+                sweetRB.Enabled = true;
+                semiSweetRB.Enabled = true;
+                sugarFreeRB.Enabled = true;
+                Controller.sendToServerMilkStatus(udpClient, port);
+            } else
+            {
+                espressoRB.Enabled = true;
+                cappucinoRB.Enabled = true;
+                americanoRB.Enabled = true;
+                sweetRB.Enabled = true;
+                semiSweetRB.Enabled = true;
+                sugarFreeRB.Enabled = true;
+            }
+
+            if(sugar < 10 && sugar > 5)
+            {
+                sweetRB.Enabled = false;
+                semiSweetRB.Enabled = true;
+                sugarFreeRB.Enabled = true;
+                Controller.sendToServerSugarStatus(udpClient, port);
+            } else if (sugar < 5)
+            {
+                sweetRB.Enabled = false;
+                semiSweetRB.Enabled = false;
+                sugarFreeRB.Enabled = true;
+            }
+            else
+            {
+                sweetRB.Enabled = true;
+                semiSweetRB.Enabled = true;
+                sugarFreeRB.Enabled = true;
+            }
+        }
+
+        
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Display an input dialog to enter a value
+            string userInput = Interaction.InputBox("Enter your password", "", "");
+
+            // Check if the user entered a value
+            if (!string.IsNullOrEmpty(userInput))
+            {
+                if (userInput == "123")
+                {
+                    check();
+                    updateTextboxes();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Access Denied", "Error");
+            }
+            MessageBox.Show("Successfully Restarted");
+        }
+
+        private void infoBtn_Click(object sender, EventArgs e)
+        {
+
+            // Display an input dialog to enter a value
+            string userInput = Interaction.InputBox("Enter your password", "", "");
+
+            // Check if the user entered a value
+            if (!string.IsNullOrEmpty(userInput))
+            {
+                if (userInput == "123")
+                {
+                    DialogResult dialogResult = form2.ShowDialog();
+                }
+              
+            }
+            else
+            {
+                MessageBox.Show("Access Denied", "Error");
+            }
+           
         }
     }
 }

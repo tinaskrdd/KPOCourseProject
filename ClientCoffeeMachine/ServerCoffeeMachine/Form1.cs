@@ -10,10 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Windows.Forms;
+using Word = Microsoft.Office.Interop.Word;
+using System.IO;
+
 namespace ServerCoffeeMachine
 {
     public partial class Form1 : Form
     {
+        string logFilePath;
         private UdpClient udpServer;
         private const int port = 8888;
         public Form1()
@@ -23,6 +28,9 @@ namespace ServerCoffeeMachine
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            logFilePath = GetSavePathForDocument();
+            createWordFile(logFilePath);
             btnStartServer_Click(sender, e);
         }
 
@@ -30,10 +38,9 @@ namespace ServerCoffeeMachine
         {
             udpServer = new UdpClient(port);
             AppendToReceivedTextBox("Server started. Waiting for messages...");
-
+            AddTextToWordFile(logFilePath, "Server started. Waiting for messages..." + getCurrentTime() + Environment.NewLine);
             // Start listening for messages asynchronously
             udpServer.BeginReceive(new AsyncCallback(ReceiveCallback), null);
-
         }
         private void ReceiveCallback(IAsyncResult ar)
         {
@@ -42,16 +49,35 @@ namespace ServerCoffeeMachine
             string receivedMessage = Encoding.ASCII.GetString(receivedBytes);
 
             AppendToReceivedTextBox("Received message from client: " + receivedMessage);
+            AddTextToWordFile(logFilePath, "Received message from client: " + receivedMessage + getCurrentTime() + Environment.NewLine);
             if (receivedMessage == "total")
             {
 
                 AppendToReceivedTextBox("Sending total\n");
+                AddTextToWordFile(logFilePath, "Sending total" + getCurrentTime() + Environment.NewLine);
                 byte[] sendBytes = Encoding.ASCII.GetBytes(Controller.getHowMuchIsLeft());
                 udpServer.Send(sendBytes, sendBytes.Length, clientEndPoint);
+            }
+            else if (receivedMessage == "coffee")
+            {
+                MessageBox.Show("REPLENISH COFFEE");
+            }
+            else if (receivedMessage == "water")
+            {
+                MessageBox.Show("REPLENISH WATER");
+            }
+            else if (receivedMessage == "sugar")
+            {
+                MessageBox.Show("REPLENISH SUGAR");
+            }
+            else if (receivedMessage == "milk")
+            {
+                MessageBox.Show("REPLENISH MILK");
             }
             else
             {
                 AppendToReceivedTextBox("Updating storage\n");
+                AddTextToWordFile(logFilePath, "Updating storage" + getCurrentTime() + Environment.NewLine);
                 string[] parts = receivedMessage.Split(';');
                 if (parts.Length == 5)
                 {
@@ -69,7 +95,7 @@ namespace ServerCoffeeMachine
                 byte[] sendBytes = Encoding.ASCII.GetBytes(responseMessage);
                 udpServer.Send(sendBytes, sendBytes.Length, clientEndPoint);
             }
-            
+
             // Continue listening for more messages
             udpServer.BeginReceive(new AsyncCallback(ReceiveCallback), null);
         }
@@ -90,7 +116,7 @@ namespace ServerCoffeeMachine
         {
             // Display an input dialog to enter a value
             string userInput = Interaction.InputBox("Enter the quantity of water added:", "Input Value", "");
-            
+
             // Check if the user entered a value
             if (!string.IsNullOrEmpty(userInput))
             {
@@ -153,6 +179,105 @@ namespace ServerCoffeeMachine
             {
                 MessageBox.Show("No value entered.", "Error");
             }
+        }
+        private string GetSavePathForDocument()
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Word Documents (*.docx)|*.docx|All files (*.*)|*.*";
+                saveFileDialog.FilterIndex = 1;
+                saveFileDialog.RestoreDirectory = true;
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    return saveFileDialog.FileName;
+                }
+
+                return string.Empty;
+            }
+        }
+
+        private void createWordFile(string documentPath)
+        {
+            if (!string.IsNullOrEmpty(documentPath))
+            {
+                // Create Word application and document
+                Word.Application word = new Word.Application();
+                Word.Document doc = word.Documents.Add();
+
+                try
+                {
+                    DateTime currentDate = DateTime.Now;
+
+                    // Convert the current date to a string in a specific format (e.g., "yyyy-MM-dd HH:mm:ss")
+                    string dateString = currentDate.ToString("yyyy-MM-dd"); // Change the format as needed
+
+                    // insert text into the document
+                    doc.Content.Text += dateString + " logFile created";
+                    // Save the document to the user-selected path
+                    doc.SaveAs(Path.GetFullPath(documentPath));
+
+                    // Close the document and Word application
+                    doc.Close();
+                    word.Quit();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                    // Close Word application and the document in case of an error
+                    doc?.Close();
+                    word?.Quit();
+                }
+            }
+        }
+        private void AddTextToWordFile(string filePath, string newText)
+        {
+            if (File.Exists(filePath))
+            {
+                Word.Application word = new Word.Application();
+                Word.Document doc = null;
+
+                try
+                {
+                    // Open the existing Word document
+                    doc = word.Documents.Open(filePath);
+
+                    // Get the existing content
+                    string existingText = doc.Content.Text;
+
+                    // Append the new text to the existing content
+                    existingText += Environment.NewLine + newText;
+
+                    // Clear the document and add the updated content
+                    doc.Content.Text = existingText;
+
+                    // Save the changes
+                    doc.Save();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Error adding text to the document: {ex.Message}");
+                }
+                finally
+                {
+                    // Close Word application and the document
+                    doc?.Close();
+                    word?.Quit();
+                }
+            }
+            else
+            {
+                throw new FileNotFoundException("The specified file does not exist.");
+            }
+        }
+
+        private string getCurrentTime()
+        {
+            DateTime currentDateTime = DateTime.Now;
+
+            string dateString = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss"); 
+            return dateString;
         }
     }
 }

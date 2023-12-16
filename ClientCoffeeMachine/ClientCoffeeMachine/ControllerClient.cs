@@ -65,4 +65,84 @@ public static class Controller
             MessageBox.Show("Error: " + ex.Message);
         }
     }
+
+    public static (int, int, int, int) checkBeforeBrewing(UdpClient udpClient, int port)
+    {
+        int coffee, water, milk, sugar;
+        string serverResources = Controller.requestTotal(udpClient, port);
+
+        string[] parts = serverResources.Split(';');
+        if (parts.Length == 4)
+        {
+            coffee = int.Parse(parts[0]);
+            water = int.Parse(parts[1]);
+            milk = int.Parse(parts[2]);
+            sugar = int.Parse(parts[3]);
+        }
+        else
+        {
+            coffee = 0;
+            water = 0;
+            milk = 0;
+            sugar = 0;
+        }
+
+        return (coffee, water, milk, sugar);
+    }
+
+    public static void sendToServerCoffeeStatus(UdpClient udpClient, int port)
+    {
+        try
+        {
+            string messageToSend = "coffee";
+            byte[] sendBytes = Encoding.ASCII.GetBytes(messageToSend);
+            udpClient.Send(sendBytes, sendBytes.Length, "127.0.0.1", port);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error: " + ex.Message);
+        }
+    }
+
+    public static void sendToServerWaterStatus(UdpClient udpClient, int port)
+    {
+        try
+        {
+            string messageToSend = "water";
+            byte[] sendBytes = Encoding.ASCII.GetBytes(messageToSend);
+            udpClient.Send(sendBytes, sendBytes.Length, "127.0.0.1", port);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error: " + ex.Message);
+        }
+    }
+
+    public static void sendToServerMilkStatus(UdpClient udpClient, int port)
+    {
+        try
+        {
+            string messageToSend = "milk";
+            byte[] sendBytes = Encoding.ASCII.GetBytes(messageToSend);
+            udpClient.Send(sendBytes, sendBytes.Length, "127.0.0.1", port);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error: " + ex.Message);
+        }
+    }
+
+    public static void sendToServerSugarStatus(UdpClient udpClient, int port)
+    {
+        try
+        {
+            string messageToSend = "sugar";
+            byte[] sendBytes = Encoding.ASCII.GetBytes(messageToSend);
+            udpClient.Send(sendBytes, sendBytes.Length, "127.0.0.1", port);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error: " + ex.Message);
+        }
+    }
 } 
