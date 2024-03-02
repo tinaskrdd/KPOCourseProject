@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kFfVeB+WcrNKMBIYxUu9u68Oaf67pXvB1bNt/gHs+dcR1E9vcJCdYyYgJ14zVXpRXbi3flGGGtoXz28gS0zaUw==",
+  "dgSpecHash": "xAwRLVV/dO9WHLPbsKAGP/lpt3ix5yJi0YvKGbHtL++bbI6IZtKgbFe+LeIiE/hUZ4kOAVGOQhTA9mvVQnbpDQ==",
   "success": true,
-  "projectFilePath": "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachineTests\\ClientCoffeeMachineTests.csproj",
+  "projectFilePath": "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachineTests\\ClientCoffeeMachineTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Панаёта Панаётавна\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Панаёта Панаётавна\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

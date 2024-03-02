@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachineTests\\ClientCoffeeMachineTests.csproj": {}
+    "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachineTests\\ClientCoffeeMachineTests.csproj": {}
   },
   "projects": {
-    "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachineTests\\ClientCoffeeMachineTests.csproj": {
+    "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachineTests\\ClientCoffeeMachineTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachineTests\\ClientCoffeeMachineTests.csproj",
+        "projectUniqueName": "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachineTests\\ClientCoffeeMachineTests.csproj",
         "projectName": "ClientCoffeeMachineTests",
-        "projectPath": "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachineTests\\ClientCoffeeMachineTests.csproj",
+        "projectPath": "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachineTests\\ClientCoffeeMachineTests.csproj",
         "packagesPath": "C:\\Users\\Панаёта Панаётавна\\.nuget\\packages\\",
-        "outputPath": "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachineTests\\obj\\",
+        "outputPath": "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachineTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Панаёта Панаётавна\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachine\\ClientCoffeeMachine.csproj": {
-                "projectPath": "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachine\\ClientCoffeeMachine.csproj"
+              "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachine\\ClientCoffeeMachine.csproj": {
+                "projectPath": "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachine\\ClientCoffeeMachine.csproj"
               },
-              "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ServerCoffeeMachine\\ServerCoffeeMachine.csproj": {
-                "projectPath": "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ServerCoffeeMachine\\ServerCoffeeMachine.csproj"
+              "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ServerCoffeeMachine\\ServerCoffeeMachine.csproj": {
+                "projectPath": "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ServerCoffeeMachine\\ServerCoffeeMachine.csproj"
               }
             }
           }
@@ -83,11 +83,11 @@
         }
       }
     },
-    "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachine\\ClientCoffeeMachine.csproj": {
+    "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachine\\ClientCoffeeMachine.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachine\\ClientCoffeeMachine.csproj",
+        "projectUniqueName": "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachine\\ClientCoffeeMachine.csproj",
         "projectName": "ClientCoffeeMachine",
-        "projectPath": "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachine\\ClientCoffeeMachine.csproj",
+        "projectPath": "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ClientCoffeeMachine\\ClientCoffeeMachine.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}
@@ -98,11 +98,11 @@
         "net472": {}
       }
     },
-    "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ServerCoffeeMachine\\ServerCoffeeMachine.csproj": {
+    "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ServerCoffeeMachine\\ServerCoffeeMachine.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ServerCoffeeMachine\\ServerCoffeeMachine.csproj",
+        "projectUniqueName": "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ServerCoffeeMachine\\ServerCoffeeMachine.csproj",
         "projectName": "ServerCoffeeMachine",
-        "projectPath": "C:\\БНТУ\\GiTHub\\KPOCourseProject\\ClientCoffeeMachine\\ServerCoffeeMachine\\ServerCoffeeMachine.csproj",
+        "projectPath": "C:\\БНТУ\\KPOCourseProject\\ClientCoffeeMachine\\ServerCoffeeMachine\\ServerCoffeeMachine.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}
