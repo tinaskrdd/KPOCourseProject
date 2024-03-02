@@ -1,0 +1,5 @@
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachineTests\obj\Debug\net6.0\ClientCoffeeMachineTests.csproj.AssemblyReference.cache
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachineTests\obj\Debug\net6.0\ClientCoffeeMachineTests.GeneratedMSBuildEditorConfig.editorconfig
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachineTests\obj\Debug\net6.0\ClientCoffeeMachineTests.AssemblyInfoInputs.cache
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachineTests\obj\Debug\net6.0\ClientCoffeeMachineTests.AssemblyInfo.cs
+C:\БНТУ\GiTHub\KPOCourseProject\ClientCoffeeMachine\ClientCoffeeMachineTests\obj\Debug\net6.0\ClientCoffeeMachineTests.csproj.CoreCompileInputs.cache

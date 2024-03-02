@@ -24,6 +24,7 @@ namespace ClientCoffeeMachine
             udpClient = new UdpClient();
         }
 
+   
         private void Form1_Load(object sender, EventArgs e)
         {
             espressoRB.Checked = true;
@@ -31,11 +32,7 @@ namespace ClientCoffeeMachine
             updateTextboxes();
             check();
         }
-
-    
-      
-
-        private void orderBtn_Click(object sender, EventArgs e)
+        public void orderBtn_Click(object sender, EventArgs e)
         {
             form2.addText("order button pressed");
             check();
@@ -206,7 +203,7 @@ namespace ClientCoffeeMachine
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             // Display an input dialog to enter a value
             string userInput = Interaction.InputBox("Enter your password", "", "");

@@ -39,6 +39,8 @@
             // btnStartServer
             // 
             this.btnStartServer.BackgroundImage = global::ServerCoffeeMachine.Properties.Resources.on_button;
+            this.btnStartServer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnStartServer.Enabled = false;
             this.btnStartServer.Location = new System.Drawing.Point(12, 12);
             this.btnStartServer.Name = "btnStartServer";
             this.btnStartServer.Size = new System.Drawing.Size(68, 62);

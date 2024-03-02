@@ -163,6 +163,7 @@
             // 
             this.CoffeeRem.Location = new System.Drawing.Point(92, 19);
             this.CoffeeRem.Name = "CoffeeRem";
+            this.CoffeeRem.ReadOnly = true;
             this.CoffeeRem.Size = new System.Drawing.Size(100, 22);
             this.CoffeeRem.TabIndex = 6;
             // 
@@ -170,6 +171,7 @@
             // 
             this.WaterRem.Location = new System.Drawing.Point(92, 67);
             this.WaterRem.Name = "WaterRem";
+            this.WaterRem.ReadOnly = true;
             this.WaterRem.Size = new System.Drawing.Size(100, 22);
             this.WaterRem.TabIndex = 7;
             // 
@@ -177,6 +179,7 @@
             // 
             this.MilkRem.Location = new System.Drawing.Point(92, 110);
             this.MilkRem.Name = "MilkRem";
+            this.MilkRem.ReadOnly = true;
             this.MilkRem.Size = new System.Drawing.Size(100, 22);
             this.MilkRem.TabIndex = 8;
             // 
@@ -184,6 +187,7 @@
             // 
             this.SugarRem.Location = new System.Drawing.Point(92, 149);
             this.SugarRem.Name = "SugarRem";
+            this.SugarRem.ReadOnly = true;
             this.SugarRem.Size = new System.Drawing.Size(100, 22);
             this.SugarRem.TabIndex = 9;
             // 
@@ -192,9 +196,9 @@
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Font = new System.Drawing.Font("Microsoft Uighur", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(1018, 121);
+            this.button1.Location = new System.Drawing.Point(995, 121);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(69, 40);
+            this.button1.Size = new System.Drawing.Size(92, 41);
             this.button1.TabIndex = 10;
             this.button1.Text = "Restart";
             this.button1.UseVisualStyleBackColor = false;
@@ -204,9 +208,10 @@
             // 
             this.infoBtn.BackColor = System.Drawing.Color.White;
             this.infoBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("infoBtn.BackgroundImage")));
-            this.infoBtn.Location = new System.Drawing.Point(1023, 17);
+            this.infoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.infoBtn.Location = new System.Drawing.Point(995, 17);
             this.infoBtn.Name = "infoBtn";
-            this.infoBtn.Size = new System.Drawing.Size(64, 66);
+            this.infoBtn.Size = new System.Drawing.Size(92, 87);
             this.infoBtn.TabIndex = 11;
             this.infoBtn.UseVisualStyleBackColor = false;
             this.infoBtn.Click += new System.EventHandler(this.infoBtn_Click);
